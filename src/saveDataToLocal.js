@@ -1,5 +1,5 @@
-function saveToLocalStorage(data) {
-    localStorage.setItem("bookForm", JSON.stringify(data));
+function saveToLocalStorage(dataBookList) {
+    localStorage.setItem("bookForm", JSON.stringify(dataBookList));
 }
 
 export default saveToLocalStorage;
