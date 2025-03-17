@@ -3,6 +3,9 @@ import addBook from "./src/addBook.js";
 import generateId from "./src/generateUnixId.js";
 import saveToLocalStorage from "./src/saveDataToLocal.js";
 import renderBookList from "./src/renderBookList.js";
+import deleteBook from "./src/deleteBookById.js";
+import editBook from "./src/editBookById.js";
+import { moveBookToComplete, moveBookToIncomplete } from "./src/moveBookById.js";
 
 let dataBookList = JSON.parse(localStorage.getItem("bookForm")) || [];
 
@@ -16,6 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
     addBook(dataBookList);
   });
 });
+
+
+window.moveBookToComplete = moveBookToComplete;
+window.moveBookToIncomplete = moveBookToIncomplete;
+window.deleteBook = deleteBook;
+window.editBook = editBook;
+
+document.addEventListener("DOMContentLoaded", renderBookList )
 
 // document.getElementById("bookFormSubmit").addEventListener("click", (event) => {
 //     event.preventDefault();
