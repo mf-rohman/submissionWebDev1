@@ -9,4 +9,3 @@ function generateId() {
 }
 
 export default generateId;
-

@@ -4,16 +4,23 @@ import saveToLocalStorage from "./saveDataToLocal.js";
 import renderBookList from "./renderBookList.js";
 
 function addBook(dataBookList) {
-    const textBookTitle = document.getElementById("bookFormTitle").value;
-    const textBookAuthor = document.getElementById("bookFormAuthor").value;
-    const textBookYear = document.getElementById("bookFormYear").value;
-    const textBookIsComplete = document.getElementById("bookFormIsComplete").checked;
+  const textBookTitle = document.getElementById("bookFormTitle").value;
+  const textBookAuthor = document.getElementById("bookFormAuthor").value;
+  const textBookYear = document.getElementById("bookFormYear").value;
+  const bookIsComplete = document.getElementById("bookFormIsComplete").checked;
 
-    const generateBookId = generateId();
-    const bookListObj = generateBookList(generateBookId, textBookTitle, textBookAuthor, textBookYear, false);
-    dataBookList.push(bookListObj);
-    saveToLocalStorage(dataBookList);
-    renderBookList();
+  const generateBookId = generateId();
+  const bookListObj = generateBookList(
+    generateBookId,
+    textBookTitle,
+    textBookAuthor,
+    textBookYear,
+    bookIsComplete
+  );
+  dataBookList.push(bookListObj);
+  saveToLocalStorage(dataBookList);
+  renderBookList();
+  this.reset();
 }
 
 export default addBook;

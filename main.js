@@ -4,8 +4,13 @@ import generateId from "./src/generateUnixId.js";
 import saveToLocalStorage from "./src/saveDataToLocal.js";
 import renderBookList from "./src/renderBookList.js";
 import deleteBook from "./src/deleteBookById.js";
-import editBook from "./src/editBookById.js";
-import { moveBookToComplete, moveBookToIncomplete } from "./src/moveBookById.js";
+import { editBook, saveEditBook, closeModal } from "./src/editBookById.js";
+import searchBook from "./src/searchBook.js";
+import {
+  moveBookToComplete,
+  moveBookToIncomplete,
+} from "./src/moveBookById.js";
+import handlerCheckBox from "./src/handlerCheckBox.js";
 
 let dataBookList = JSON.parse(localStorage.getItem("bookForm")) || [];
 
@@ -19,44 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     addBook(dataBookList);
   });
 });
-
+handlerCheckBox();
 
 window.moveBookToComplete = moveBookToComplete;
 window.moveBookToIncomplete = moveBookToIncomplete;
 window.deleteBook = deleteBook;
 window.editBook = editBook;
+window.searchBook = searchBook;
+window.saveEditBook = saveEditBook;
+window.closeModal = closeModal;
+window.handlerCheckBox = handlerCheckBox;
 
-document.addEventListener("DOMContentLoaded", renderBookList )
-
-// document.getElementById("bookFormSubmit").addEventListener("click", (event) => {
-//     event.preventDefault();
-
-//     const bookTitle = document.getElementById("bookFormTitle").value;
-//     const bookAuthor = document.getElementById("bookFormAuthor").value;
-//     const bookYear = document.getElementById("bookFormYear").value;
-//     const bookIsComplete = document.getElementById("bookFormIsComplete").checked;
-
-//     if(editBookId === null) {
-//         dataBookList.push({
-//             id: generateId(),
-//             title: bookTitle,
-//             author: bookAuthor,
-//             year: bookYear,
-//             isComplete: bookIsComplete,
-//         });
-//     } else {
-//         const indexBookList = dataBookList.findIndex((book) => book.id === editBookId);
-//         if(indexBookList !== -1) {
-//             dataBookList[indexBookList] = {
-//                 id: editBookId,
-//                 title: bookTitle,
-//                 author: bookAuthor,
-//                 year: bookYear,
-//                 isComplete: bookIsComplete,
-//             };
-//             editBookId = null;
-//         }
-//     }
-//     console.log(dataBookList);
-//     saveToLocalStorage(dataBookList);
-// })
+document.addEventListener("DOMContentLoaded", renderBookList);
