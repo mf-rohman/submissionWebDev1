@@ -37,12 +37,12 @@ function renderBookList(bookList = null) {
                 <h3 data-testid="bookItemTitle">${capitalizeEachWord(
                   book.title
                 )}</h3>
-                <p><span class="label">Author</span><span class="separator">:</span> <span class="value">${
+                <p data-testid="bookItemAuthor"><span class="label">Author</span><span class="separator">:</span> <span class="value">${
                   book.author
                 }</span></p>
-                <p><span class="label">Publish Year</span><span class="separator">:</span> <span class="value">${
+                <p data-testid="bookItemYear"><span class="label">Publish Year</span><span class="separator">:</span> <span class="value">${parseInt(
                   book.year
-                }</span></p>
+                )}</span></p>
             </div>
             ${
               book.isComplete

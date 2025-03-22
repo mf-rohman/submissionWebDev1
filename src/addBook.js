@@ -14,13 +14,14 @@ function addBook(dataBookList) {
     generateBookId,
     textBookTitle,
     textBookAuthor,
-    textBookYear,
+    Number(textBookYear),
     bookIsComplete
   );
   dataBookList.push(bookListObj);
   saveToLocalStorage(dataBookList);
   renderBookList();
-  this.reset();
+  document.getElementById("bookForm").reset();
+  // this.reset();
 }
 
 export default addBook;

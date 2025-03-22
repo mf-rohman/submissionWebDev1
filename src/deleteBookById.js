@@ -1,4 +1,4 @@
-import saveToLocalStorage from "./saveDataToLocal.js";
+// import saveToLocalStorage from "./saveDataToLocal.js";
 import renderBookList from "./renderBookList.js";
 
 function deleteBook(index) {
@@ -9,7 +9,8 @@ function deleteBook(index) {
 
   if (confirmDelete) {
     bookList.splice(index, 1);
-    saveToLocalStorage(bookList);
+    localStorage.setItem("bookForm", JSON.stringify(bookList));
+    // saveToLocalStorage(bookList);
     renderBookList();
   }
 }
